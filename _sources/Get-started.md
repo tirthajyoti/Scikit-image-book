@@ -1,19 +1,21 @@
 ## Get started
 
-==========================================================
+---
 
 ### Requirements
 
-The code and examples of this book should work for Python 3.5+. 
+The code and examples of this book should work for **Python 3.5+**. 
 
-Install the following Python packages
+Install the latest versions of the following Python packages
 
 - NumPy (`pip install numpy`)
 - SciPy (`pip install scipy`)
 - MatplotLib (`pip install matplotlib`)
 - Scikit-image (`pip install scikit-image`)
 
+```{note}
 You should also have Jupyter notebook/lab environment installed and built for interactive practice.
+```
 
 ### Testing after install
 

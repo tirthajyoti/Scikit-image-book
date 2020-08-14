@@ -1,8 +1,11 @@
-# A short tour of Scikit-image with hands-on code
+# A short tour of Scikit-image library with hands-on code
 
 ---
 
 ## Dr. Tirthajyoti Sarkar, Fremont, CA, August 2020
+
+- [My LinkedIn](https://www.linkedin.com/in/tirthajyoti-sarkar-2127aa7/) 
+- [My Homepage](https://tirthajyoti.github.io)
 
 ---
 
@@ -12,11 +15,25 @@
 
 The developres pride themselves on high-quality, peer-reviewed code, written by an active community of volunteers.
 
+Here is a snapshot of the core team from their website.
+
+```{figure} Images/Team.png
+---
+name: Team
+---
+Core team of Scikit-image
+```
+
 ### What is this book about?
 
 In this short book, we illustrate some of the core algorithms/functions of this popular Python library for image processing and manipulation tasks, with hands-on code examples.
 
 You can think of `scikit-image` as the **first essential library to get familiar with, if you want to work in the field of computer vision/ image processing**.
 
-This book has been built and published using the [Jupyter-book](https://jupyterbook.org/start/overview.html) tool.
+### Examples from the Scikit-image website
 
+All the examples in this book are directly from the Scikit-image website. I have merely enhanced the code with comments and put them together in a single, navigable manner.
+
+### Built using `Jupyter-book`
+
+This book has been built and published using the [Jupyter-book](https://jupyterbook.org/start/overview.html) tool. It is an open source project for building beautiful, publication-quality books and documents from computational material.
