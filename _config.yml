@@ -1,0 +1,8 @@
+# Book settings
+title: Hands-on introduction to Scikit-image methods
+author: Dr. Tirthajyoti Sarkar
+logo: logo.png
+
+latex:
+  latex_documents:
+    targetname: book.tex

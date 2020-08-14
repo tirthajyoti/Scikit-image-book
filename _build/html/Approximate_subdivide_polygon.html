@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>4. Approximate and subdivide polygon chains &#8212; Hands-on introduction to Scikit-image methods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/togglebutton.js"></script>
+    <script type="text/javascript" src="_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript" src="_static/mystnb.js"></script>
+    <script type="text/javascript" src="_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.14.0/dist/embed-amd.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. What’s this notebook about?" href="Block_view_mean_max_median_sampling.html" />
+    <link rel="prev" title="3. What’s this notebook about?" href="Adapt_RGB_decorator.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Hands-on introduction to Scikit-image methods</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Intro.html">
+   A short tour of Scikit-image with hands-on code
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Get-started.html">
+   1. Get started
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Active_contour_model.html">
+   2. Active contour model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Adapt_RGB_decorator.html">
+   3. Adapt RGB decorator
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Approximate subdivide polygon
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Block_view_mean_max_median_sampling.html">
+   5. Block view mean max median sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Canny_edge_detector.html">
+   6. Canny edge detector
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Circular_Elliptical_Hough_Transform.html">
+   7. Circular Elliptical Hough Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Convex_Hull.html">
+   8. Convex Hull
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Denoise.html">
+   9. Denoise
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Edge_operators.html">
+   10. Edge operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Entropy.html">
+   11. Entropy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Filtering_regional_maxima.html">
+   12. Filtering regional maxima
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Finding_contours.html">
+   13. Finding contours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Gamma_log_contrast_adjustment.html">
+   14. Gamma log contrast adjustment
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Approximate_subdivide_polygon.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-the-test-object">
+   4.1. Create the test object
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subdivide-polygon-using-2nd-degree-b-splines">
+   4.2. Subdivide polygon using 2nd degree B-Splines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximate-subdivided-polygon-with-douglas-peucker-algorithm">
+   4.3. Approximate subdivided polygon with Douglas-Peucker algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show">
+   4.4. Show
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="approximate-and-subdivide-polygon-chains">
+<h1>4. Approximate and subdivide polygon chains<a class="headerlink" href="#approximate-and-subdivide-polygon-chains" title="Permalink to this headline">¶</a></h1>
+<p>This example shows how to approximate (<a class="reference external" href="https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm">Douglas-Peucker algorithm</a>) and subdivide (B-Splines) polygonal chains.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">skimage.measure</span> <span class="k">import</span> <span class="n">approximate_polygon</span><span class="p">,</span> <span class="n">subdivide_polygon</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="create-the-test-object">
+<h2>4.1. Create the test object<a class="headerlink" href="#create-the-test-object" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.64516129</span><span class="p">,</span> <span class="mf">1.16145833</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.64516129</span><span class="p">,</span> <span class="mf">1.59375</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.35080645</span><span class="p">,</span> <span class="mf">1.921875</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.375</span><span class="p">,</span> <span class="mf">2.18229167</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.68548387</span><span class="p">,</span> <span class="mf">1.9375</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.60887097</span><span class="p">,</span> <span class="mf">2.55208333</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.68548387</span><span class="p">,</span> <span class="mf">2.69791667</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.76209677</span><span class="p">,</span> <span class="mf">2.56770833</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.83064516</span><span class="p">,</span> <span class="mf">1.97395833</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.89516129</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.9516129</span><span class="p">,</span> <span class="mf">2.84895833</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.01209677</span><span class="p">,</span> <span class="mf">2.76041667</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">1.99193548</span><span class="p">,</span> <span class="mf">1.99479167</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.11290323</span><span class="p">,</span> <span class="mf">2.63020833</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.2016129</span><span class="p">,</span> <span class="mf">2.734375</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.25403226</span><span class="p">,</span> <span class="mf">2.60416667</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.14919355</span><span class="p">,</span> <span class="mf">1.953125</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.30645161</span><span class="p">,</span> <span class="mf">2.36979167</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.39112903</span><span class="p">,</span> <span class="mf">2.36979167</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.41532258</span><span class="p">,</span> <span class="mf">2.1875</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.1733871</span><span class="p">,</span> <span class="mf">1.703125</span><span class="p">],</span>
+                 <span class="p">[</span><span class="mf">2.07782258</span><span class="p">,</span> <span class="mf">1.16666667</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">hand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Approximate_subdivide_polygon_4_0.png" src="_images/Approximate_subdivide_polygon_4_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="subdivide-polygon-using-2nd-degree-b-splines">
+<h2>4.2. Subdivide polygon using 2nd degree B-Splines<a class="headerlink" href="#subdivide-polygon-using-2nd-degree-b-splines" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_hand</span> <span class="o">=</span> <span class="n">hand</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">new_hand</span> <span class="o">=</span> <span class="n">subdivide_polygon</span><span class="p">(</span><span class="n">new_hand</span><span class="p">,</span> <span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">preserve_ends</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="approximate-subdivided-polygon-with-douglas-peucker-algorithm">
+<h2>4.3. Approximate subdivided polygon with Douglas-Peucker algorithm<a class="headerlink" href="#approximate-subdivided-polygon-with-douglas-peucker-algorithm" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">appr_hand</span> <span class="o">=</span> <span class="n">approximate_polygon</span><span class="p">(</span><span class="n">new_hand</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="show">
+<h2>4.4. Show<a class="headerlink" href="#show" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">hand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Original&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">new_hand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">new_hand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;2-nd degree B-splines&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">appr_hand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">appr_hand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Douglas-Peucker&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Approximate_subdivide_polygon_10_0.png" src="_images/Approximate_subdivide_polygon_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">hand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">new_hand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">new_hand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">appr_hand</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">appr_hand</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Approximate_subdivide_polygon_11_0.png" src="_images/Approximate_subdivide_polygon_11_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Adapt_RGB_decorator.html" title="previous page">3. What’s this notebook about?</a>
+    <a class='right-next' id="next-link" href="Block_view_mean_max_median_sampling.html" title="next page">5. What’s this notebook about?</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dr. Tirthajyoti Sarkar<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="_static/js/index.js"></script>
+    
+  </body>
+</html>
