@@ -222,33 +222,28 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dr-tirthajyoti-sarkar-fremont-ca-94536-june-2019">
-   12.1. Dr. Tirthajyoti Sarkar, Fremont, CA 94536, June 2019
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#original-image">
-   12.2. Original image
+   12.1. Original image
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#floating-point-conversion-and-gaussian-filtering">
-   12.3. Floating point conversion and Gaussian filtering
+   12.2. Floating point conversion and Gaussian filtering
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#reconstruction-after-seeding-with-the-minimum-pixel-value">
-   12.4. Reconstruction after seeding with the minimum pixel value
+   12.3. Reconstruction after seeding with the minimum pixel value
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#show-images-side-by-side-in-grayscale">
-   12.5. Show images side by side in grayscale
+   12.4. Show images side by side in grayscale
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#using-a-different-seed-value-for-masking">
-   12.6. Using a different seed value for masking
+   12.5. Using a different seed value for masking
   </a>
  </li>
 </ul>
@@ -263,8 +258,6 @@
                 
   <div class="section" id="filtering-regional-maxima">
 <h1>12. Filtering regional maxima<a class="headerlink" href="#filtering-regional-maxima" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dr-tirthajyoti-sarkar-fremont-ca-94536-june-2019">
-<h2>12.1. Dr. Tirthajyoti Sarkar, Fremont, CA 94536, June 2019<a class="headerlink" href="#dr-tirthajyoti-sarkar-fremont-ca-94536-june-2019" title="Permalink to this headline">¶</a></h2>
 <p>Here, we use morphological reconstruction to create a background image, which can be subtracted from the original image to <strong>isolate bright features (regional maxima).</strong></p>
 <p>First we try reconstruction by dilation starting at the edges of the image. We initialize a seed image to the minimum intensity of the image, and set its border to be the pixel values in the original image. These maximal pixels will get dilated in order to reconstruct the background image.</p>
 <div class="cell docutils container">
@@ -280,9 +273,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="original-image">
-<h2>12.2. Original image<a class="headerlink" href="#original-image" title="Permalink to this headline">¶</a></h2>
+<h2>12.1. Original image<a class="headerlink" href="#original-image" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">coins</span><span class="p">()</span>
@@ -297,7 +289,7 @@
 </div>
 </div>
 <div class="section" id="floating-point-conversion-and-gaussian-filtering">
-<h2>12.3. Floating point conversion and Gaussian filtering<a class="headerlink" href="#floating-point-conversion-and-gaussian-filtering" title="Permalink to this headline">¶</a></h2>
+<h2>12.2. Floating point conversion and Gaussian filtering<a class="headerlink" href="#floating-point-conversion-and-gaussian-filtering" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to float: Important for subtraction later which won&#39;t work with uint8</span>
@@ -309,7 +301,7 @@
 </div>
 </div>
 <div class="section" id="reconstruction-after-seeding-with-the-minimum-pixel-value">
-<h2>12.4. Reconstruction after seeding with the minimum pixel value<a class="headerlink" href="#reconstruction-after-seeding-with-the-minimum-pixel-value" title="Permalink to this headline">¶</a></h2>
+<h2>12.3. Reconstruction after seeding with the minimum pixel value<a class="headerlink" href="#reconstruction-after-seeding-with-the-minimum-pixel-value" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">filtered_image</span><span class="p">)</span>
@@ -328,7 +320,7 @@
 </div>
 </div>
 <div class="section" id="show-images-side-by-side-in-grayscale">
-<h2>12.5. Show images side by side in grayscale<a class="headerlink" href="#show-images-side-by-side-in-grayscale" title="Permalink to this headline">¶</a></h2>
+<h2>12.4. Show images side by side in grayscale<a class="headerlink" href="#show-images-side-by-side-in-grayscale" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span><span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -355,7 +347,7 @@
 </div>
 </div>
 <div class="section" id="using-a-different-seed-value-for-masking">
-<h2>12.6. Using a different seed value for masking<a class="headerlink" href="#using-a-different-seed-value-for-masking" title="Permalink to this headline">¶</a></h2>
+<h2>12.5. Using a different seed value for masking<a class="headerlink" href="#using-a-different-seed-value-for-masking" title="Permalink to this headline">¶</a></h2>
 <p>Although the features (i.e. the coins) are clearly isolated, the coins surrounded by a bright background in the original image are dimmer in the subtracted image. We can attempt to correct this using a different seed image.</p>
 <p>Instead of creating a seed image with maxima along the image border, we can use the features of the image itself to seed the reconstruction process. Here, the seed image is the original image minus a fixed value</p>
 <div class="cell docutils container">

@@ -222,28 +222,23 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dr-tirthajyoti-sarkar-fremont-ca-94536">
-   8.1. Dr. Tirthajyoti Sarkar, Fremont CA 94536
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-original-image-is-inverted-as-the-object-must-be-white">
-   8.2. The original image is inverted as the object must be white
+   8.1. The original image is inverted as the object must be white
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#create-a-convex-hull">
-   8.3. Create a convex hull
+   8.2. Create a convex hull
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#show-the-result">
-   8.4. Show the result
+   8.3. Show the result
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#showing-the-difference-by-fixing-the-pixel-intensity-on-the-convex-hull">
-   8.5. Showing the difference by fixing the pixel intensity on the convex hull
+   8.4. Showing the difference by fixing the pixel intensity on the convex hull
   </a>
  </li>
 </ul>
@@ -258,8 +253,6 @@
                 
   <div class="section" id="convex-hull">
 <h1>8. Convex Hull<a class="headerlink" href="#convex-hull" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dr-tirthajyoti-sarkar-fremont-ca-94536">
-<h2>8.1. Dr. Tirthajyoti Sarkar, Fremont CA 94536<a class="headerlink" href="#dr-tirthajyoti-sarkar-fremont-ca-94536" title="Permalink to this headline">¶</a></h2>
 <p>The convex hull of a binary image is the set of pixels included in the smallest convex polygon that surround all white pixels in the input.</p>
 <p>A good overview of the algorithm is given on <a class="reference external" href="http://blogs.mathworks.com/steve/2011/10/04/binary-image-convex-hull-algorithm-notes/">this blog</a>.</p>
 <div class="cell docutils container">
@@ -273,9 +266,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="the-original-image-is-inverted-as-the-object-must-be-white">
-<h2>8.2. The original image is inverted as the object must be white<a class="headerlink" href="#the-original-image-is-inverted-as-the-object-must-be-white" title="Permalink to this headline">¶</a></h2>
+<h2>8.1. The original image is inverted as the object must be white<a class="headerlink" href="#the-original-image-is-inverted-as-the-object-must-be-white" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">invert</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">horse</span><span class="p">())</span>
@@ -285,7 +277,7 @@
 </div>
 </div>
 <div class="section" id="create-a-convex-hull">
-<h2>8.3. Create a convex hull<a class="headerlink" href="#create-a-convex-hull" title="Permalink to this headline">¶</a></h2>
+<h2>8.2. Create a convex hull<a class="headerlink" href="#create-a-convex-hull" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chull</span> <span class="o">=</span> <span class="n">convex_hull_image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
@@ -295,7 +287,7 @@
 </div>
 </div>
 <div class="section" id="show-the-result">
-<h2>8.4. Show the result<a class="headerlink" href="#show-the-result" title="Permalink to this headline">¶</a></h2>
+<h2>8.3. Show the result<a class="headerlink" href="#show-the-result" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
@@ -320,7 +312,7 @@
 </div>
 </div>
 <div class="section" id="showing-the-difference-by-fixing-the-pixel-intensity-on-the-convex-hull">
-<h2>8.5. Showing the difference by fixing the pixel intensity on the convex hull<a class="headerlink" href="#showing-the-difference-by-fixing-the-pixel-intensity-on-the-convex-hull" title="Permalink to this headline">¶</a></h2>
+<h2>8.4. Showing the difference by fixing the pixel intensity on the convex hull<a class="headerlink" href="#showing-the-difference-by-fixing-the-pixel-intensity-on-the-convex-hull" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chull_diff</span> <span class="o">=</span> <span class="n">img_as_float</span><span class="p">(</span><span class="n">chull</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>

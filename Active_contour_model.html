@@ -39,7 +39,7 @@
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3. What’s this notebook about?" href="Adapt_RGB_decorator.html" />
+    <link rel="next" title="3. Adaptive RGB decorator" href="Adapt_RGB_decorator.html" />
     <link rel="prev" title="1. Get started" href="Get-started.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -222,23 +222,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dr-tirthajyoti-sarkar-fremont-ca-94536">
-   2.1. Dr. Tirthajyoti Sarkar, Fremont CA 94536
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#load-the-test-image">
-   2.2. Load the test image
+   2.1. Load the test image
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-for-creating-circular-boundary">
-   2.3. Data for creating circular boundary
+   2.2. Data for creating circular boundary
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#contour-after-applying-gaussian-smoothing">
-   2.4. Contour (after applying
+   2.3. Contour (after applying
    <code class="docutils literal notranslate">
     <span class="pre">
      gaussian
@@ -249,7 +244,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#text-data-image">
-   2.5. Text data image
+   2.4. Text data image
   </a>
  </li>
 </ul>
@@ -264,8 +259,6 @@
                 
   <div class="section" id="active-contour-model">
 <h1>2. Active contour model<a class="headerlink" href="#active-contour-model" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dr-tirthajyoti-sarkar-fremont-ca-94536">
-<h2>2.1. Dr. Tirthajyoti Sarkar, Fremont CA 94536<a class="headerlink" href="#dr-tirthajyoti-sarkar-fremont-ca-94536" title="Permalink to this headline">¶</a></h2>
 <p>The active contour model is a method to fit open or closed splines to lines or edges in an image. It works by <strong>minimizing an energy that is in part defined by the image and part by the spline’s shape: length and smoothness</strong>. The minimization is done implicitly in the shape energy and explicitly in the image energy.</p>
 <p>In the following two examples, the active contour model is used</p>
 <ol class="simple">
@@ -286,9 +279,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="load-the-test-image">
-<h2>2.2. Load the test image<a class="headerlink" href="#load-the-test-image" title="Permalink to this headline">¶</a></h2>
+<h2>2.1. Load the test image<a class="headerlink" href="#load-the-test-image" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">astronaut</span><span class="p">()</span>
@@ -299,7 +291,7 @@
 </div>
 </div>
 <div class="section" id="data-for-creating-circular-boundary">
-<h2>2.3. Data for creating circular boundary<a class="headerlink" href="#data-for-creating-circular-boundary" title="Permalink to this headline">¶</a></h2>
+<h2>2.2. Data for creating circular boundary<a class="headerlink" href="#data-for-creating-circular-boundary" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
@@ -312,7 +304,7 @@
 </div>
 </div>
 <div class="section" id="contour-after-applying-gaussian-smoothing">
-<h2>2.4. Contour (after applying <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> smoothing)<a class="headerlink" href="#contour-after-applying-gaussian-smoothing" title="Permalink to this headline">¶</a></h2>
+<h2>2.3. Contour (after applying <code class="docutils literal notranslate"><span class="pre">gaussian</span></code> smoothing)<a class="headerlink" href="#contour-after-applying-gaussian-smoothing" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cntr</span> <span class="o">=</span> <span class="n">active_contour</span><span class="p">(</span><span class="n">gaussian</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span><span class="n">init</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.015</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
@@ -349,7 +341,7 @@
 </div>
 </div>
 <div class="section" id="text-data-image">
-<h2>2.5. Text data image<a class="headerlink" href="#text-data-image" title="Permalink to this headline">¶</a></h2>
+<h2>2.4. Text data image<a class="headerlink" href="#text-data-image" title="Permalink to this headline">¶</a></h2>
 <p>Here we initialize a straight line between two points, (5, 136) and (424, 50), and require that the spline has its end points there by giving the boundary condition <code class="docutils literal notranslate"><span class="pre">bc=’fixed’</span></code>. We furthermore make the algorithm search for dark lines by giving a negative <code class="docutils literal notranslate"><span class="pre">w_line</span></code> value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -421,7 +413,7 @@ c:\program files\python37\lib\site-packages\ipykernel_launcher.py:6: FutureWarni
     <div class='prev-next-bottom'>
         
     <a class='left-prev' id="prev-link" href="Get-started.html" title="previous page">1. Get started</a>
-    <a class='right-next' id="next-link" href="Adapt_RGB_decorator.html" title="next page">3. What’s this notebook about?</a>
+    <a class='right-next' id="next-link" href="Adapt_RGB_decorator.html" title="next page">3. Adaptive RGB decorator</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

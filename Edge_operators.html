@@ -222,23 +222,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dr-tirthajyoti-sarkar-fremont-ca-94536">
-   10.1. Dr. Tirthajyoti Sarkar, Fremont CA 94536
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#showing-difference-between-edge-operators">
-   10.2. Showing difference between edge operators
+   10.1. Showing difference between edge operators
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#rotation-invariant-image-with-different-spatial-frequencies">
-   10.3. Rotation-invariant image with different spatial frequencies
+   10.2. Rotation-invariant image with different spatial frequencies
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#differential-filters">
-   10.4. Differential filters
+   10.3. Differential filters
   </a>
  </li>
 </ul>
@@ -253,8 +248,6 @@
                 
   <div class="section" id="edge-operators">
 <h1>10. Edge operators<a class="headerlink" href="#edge-operators" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dr-tirthajyoti-sarkar-fremont-ca-94536">
-<h2>10.1. Dr. Tirthajyoti Sarkar, Fremont CA 94536<a class="headerlink" href="#dr-tirthajyoti-sarkar-fremont-ca-94536" title="Permalink to this headline">¶</a></h2>
 <p>Edge operators are used in image processing within edge detection algorithms. They are discrete differentiation operators, computing an approximation of the gradient of the image intensity function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -302,16 +295,15 @@
 <img alt="_images/Edge_operators_3_0.png" src="_images/Edge_operators_3_0.png" />
 </div>
 </div>
-</div>
 <div class="section" id="showing-difference-between-edge-operators">
-<h2>10.2. Showing difference between edge operators<a class="headerlink" href="#showing-difference-between-edge-operators" title="Permalink to this headline">¶</a></h2>
+<h2>10.1. Showing difference between edge operators<a class="headerlink" href="#showing-difference-between-edge-operators" title="Permalink to this headline">¶</a></h2>
 <p>Different operators compute different finite-difference approximations of the gradient. For example, the Scharr filter results in a less rotational variance than the Sobel filter that is in turn better than the Prewitt filter.</p>
 <p>The difference between the Prewitt and Sobel filters and the Scharr filter is illustrated below with an image that is the discretization of a rotation- invariant continuous function.</p>
 <p>The discrepancy between the Prewitt and Sobel filters, and the Scharr filter is stronger for regions of the image where the direction of the gradient is close to diagonal, and for regions with high spatial frequencies.</p>
 <p>For the example image the differences between the filter results are very small and the filter results are visually almost indistinguishable.</p>
 </div>
 <div class="section" id="rotation-invariant-image-with-different-spatial-frequencies">
-<h2>10.3. Rotation-invariant image with different spatial frequencies<a class="headerlink" href="#rotation-invariant-image-with-different-spatial-frequencies" title="Permalink to this headline">¶</a></h2>
+<h2>10.2. Rotation-invariant image with different spatial frequencies<a class="headerlink" href="#rotation-invariant-image-with-different-spatial-frequencies" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[:</span><span class="mi">100</span><span class="p">,</span> <span class="p">:</span><span class="mi">100</span><span class="p">]</span>
@@ -342,7 +334,7 @@
 </div>
 </div>
 <div class="section" id="differential-filters">
-<h2>10.4. Differential filters<a class="headerlink" href="#differential-filters" title="Permalink to this headline">¶</a></h2>
+<h2>10.3. Differential filters<a class="headerlink" href="#differential-filters" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diff_scharr_prewitt</span> <span class="o">=</span> <span class="n">edge_scharr</span> <span class="o">-</span> <span class="n">edge_prewitt</span>

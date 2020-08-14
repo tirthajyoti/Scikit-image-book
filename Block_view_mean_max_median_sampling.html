@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>5. What’s this notebook about? &#8212; Hands-on introduction to Scikit-image methods</title>
+    <title>5. Block view functions &#8212; Hands-on introduction to Scikit-image methods</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -297,8 +297,8 @@
         
               <div>
                 
-  <div class="section" id="what-s-this-notebook-about">
-<h1>5. What’s this notebook about?<a class="headerlink" href="#what-s-this-notebook-about" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="block-view-functions">
+<h1>5. Block view functions<a class="headerlink" href="#block-view-functions" title="Permalink to this headline">¶</a></h1>
 <p>This example illustrates the use of <strong><code class="docutils literal notranslate"><span class="pre">view_as_blocks</span></code></strong> function from the <strong><code class="docutils literal notranslate"><span class="pre">skimage.util()</span></code></strong> class. Block views can be incredibly useful when one wants to perform local operations on non-overlapping image patches.</p>
 <p>We use the astronaut image from <strong><code class="docutils literal notranslate"><span class="pre">skimage.data</span></code></strong> and virtually ‘slice’ it into square blocks. Then, on each block, we either pool the mean, the max or the median value of that block using the corresponding NumPy functions. The results are displayed together, along with a spline interpolation of order 3 rescaling of the original astronaut image (using SciPy <strong><code class="docutils literal notranslate"><span class="pre">ndimage.zoom()</span></code></strong> method.</p>
 <div class="cell docutils container">

@@ -222,18 +222,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dr-tirthajyoti-sarkar-fremont-ca-94536">
-   13.1. Dr. Tirthajyoti Sarkar, Fremont CA 94536
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#construct-test-data">
-   13.2. Construct test data
+   13.1. Construct test data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#find-contours-at-a-fixed-threshold-level">
-   13.3. Find contours at a fixed threshold level
+   13.2. Find contours at a fixed threshold level
   </a>
  </li>
 </ul>
@@ -248,8 +243,6 @@
                 
   <div class="section" id="finding-contours">
 <h1>13. Finding contours<a class="headerlink" href="#finding-contours" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dr-tirthajyoti-sarkar-fremont-ca-94536">
-<h2>13.1. Dr. Tirthajyoti Sarkar, Fremont CA 94536<a class="headerlink" href="#dr-tirthajyoti-sarkar-fremont-ca-94536" title="Permalink to this headline">¶</a></h2>
 <p>We use a marching squares method to find constant valued contours in an image. In skimage.measure.find_contours, array values are linearly interpolated to provide better precision of the output contours. Contours which intersect the image edge are open; all others are closed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -260,9 +253,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="construct-test-data">
-<h2>13.2. Construct test data<a class="headerlink" href="#construct-test-data" title="Permalink to this headline">¶</a></h2>
+<h2>13.1. Construct test data<a class="headerlink" href="#construct-test-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ogrid</span><span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="mi">100</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">:</span><span class="mi">100</span><span class="n">j</span><span class="p">]</span>
@@ -285,7 +277,7 @@
 </div>
 </div>
 <div class="section" id="find-contours-at-a-fixed-threshold-level">
-<h2>13.3. Find contours at a fixed threshold level<a class="headerlink" href="#find-contours-at-a-fixed-threshold-level" title="Permalink to this headline">¶</a></h2>
+<h2>13.2. Find contours at a fixed threshold level<a class="headerlink" href="#find-contours-at-a-fixed-threshold-level" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">contours</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">find_contours</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)</span>

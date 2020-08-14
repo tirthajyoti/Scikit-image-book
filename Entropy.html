@@ -222,18 +222,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dr-tirthajyoti-sarkar-fremont-ca-94536">
-   11.1. Dr. Tirthajyoti Sarkar, Fremont, CA 94536
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#first-example-object-detection">
-   11.2. First example: object detection
+   11.1. First example: object detection
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#second-example-texture-detection">
-   11.3. Second example: texture detection
+   11.2. Second example: texture detection
   </a>
  </li>
 </ul>
@@ -248,8 +243,6 @@
                 
   <div class="section" id="entropy">
 <h1>11. Entropy<a class="headerlink" href="#entropy" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="dr-tirthajyoti-sarkar-fremont-ca-94536">
-<h2>11.1. Dr. Tirthajyoti Sarkar, Fremont, CA 94536<a class="headerlink" href="#dr-tirthajyoti-sarkar-fremont-ca-94536" title="Permalink to this headline">¶</a></h2>
 <p>In information theory, information entropy is the log-base-2 of the number of possible outcomes for a message.</p>
 <p>For an image, local entropy is related to the complexity contained in a given neighborhood, typically defined by a structuring element. The entropy filter can detect subtle variations in the local gray level distribution.</p>
 <p>In the first example, the image is composed of two surfaces with two slightly different distributions. The image has a uniform random distribution in the range [-14, +14] in the middle of the image and a uniform random distribution in the range [-15, 15] at the image borders, both centered at a gray value of 128. To detect the central square, we compute the local entropy measure using a circular structuring element of a radius big enough to capture the local gray level distribution. The second example shows how to detect texture in the camera image using a smaller structuring element.</p>
@@ -266,9 +259,8 @@
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="first-example-object-detection">
-<h2>11.2. First example: object detection<a class="headerlink" href="#first-example-object-detection" title="Permalink to this headline">¶</a></h2>
+<h2>11.1. First example: object detection<a class="headerlink" href="#first-example-object-detection" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">noise_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="mi">28</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
@@ -304,7 +296,7 @@
 </div>
 </div>
 <div class="section" id="second-example-texture-detection">
-<h2>11.3. Second example: texture detection<a class="headerlink" href="#second-example-texture-detection" title="Permalink to this headline">¶</a></h2>
+<h2>11.2. Second example: texture detection<a class="headerlink" href="#second-example-texture-detection" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">img_as_ubyte</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">camera</span><span class="p">())</span>
