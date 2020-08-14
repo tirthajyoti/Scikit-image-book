@@ -1,6 +1,10 @@
-## A short tour of Scikit-image with hands-on code
+# A short tour of Scikit-image with hands-on code
 
-==========================================================
+---
+
+## Dr. Tirthajyoti Sarkar, Fremont, CA, August 2020
+
+---
 
 ### What is `Scikit-image`?
 

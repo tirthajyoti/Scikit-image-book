@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>1. Get started &#8212; Hands-on introduction to Scikit-image methods</title>
+    <title>20. What’s this notebook about? &#8212; Hands-on introduction to Scikit-image methods</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="_static/sphinx-book-theme.css" type="text/css" />
@@ -39,8 +39,8 @@
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. Active contour model" href="Active_contour_model.html" />
-    <link rel="prev" title="A short tour of Scikit-image with hands-on code" href="Intro.html" />
+    <link rel="next" title="&lt;no title&gt;" href="Scipy_zooming.html" />
+    <link rel="prev" title="19. RGB to gray" href="RGB2Gray.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -81,8 +81,8 @@
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Get-started.html">
    1. Get started
   </a>
  </li>
@@ -176,8 +176,8 @@
    19. RGB2Gray
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="RGB_to_HSV.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    20. RGB to HSV
   </a>
  </li>
@@ -233,9 +233,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/Get-started.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/RGB_to_HSV.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -262,13 +262,24 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#requirements">
-   1.1. Requirements
+  <a class="reference internal nav-link" href="#original-and-hsv-converted-image-using-rgb2hsv-method">
+   20.1. Original and HSV converted image (using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     rgb2hsv()
+    </span>
+   </code>
+   method)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#testing-after-install">
-   1.2. Testing after install
+  <a class="reference internal nav-link" href="#images-with-hue-saturation-and-value-channels-separately">
+   20.2. Images with hue, saturation, and value channels (separately)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#show-images">
+   20.3. Show images
   </a>
  </li>
 </ul>
@@ -281,37 +292,74 @@
         
               <div>
                 
-  <div class="section" id="get-started">
-<h1>1. Get started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h1>
-<p>==========================================================</p>
-<div class="section" id="requirements">
-<h2>1.1. Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>The code and examples of this book should work for Python 3.5+.</p>
-<p>Install the following Python packages</p>
-<ul class="simple">
-<li><p>NumPy (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">numpy</span></code>)</p></li>
-<li><p>SciPy (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scipy</span></code>)</p></li>
-<li><p>MatplotLib (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code>)</p></li>
-<li><p>Scikit-image (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scikit-image</span></code>)</p></li>
-</ul>
-<p>You should also have Jupyter notebook/lab environment installed and built for interactive practice.</p>
-</div>
-<div class="section" id="testing-after-install">
-<h2>1.2. Testing after install<a class="headerlink" href="#testing-after-install" title="Permalink to this headline">¶</a></h2>
-<p>Open a Jupyter notebook and execute the following code,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">skimage</span> <span class="k">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">filters</span>
+  <div class="section" id="what-s-this-notebook-about">
+<h1>20. What’s this notebook about?<a class="headerlink" href="#what-s-this-notebook-about" title="Permalink to this headline">¶</a></h1>
+<p>This example illustrates how RGB to HSV <strong>(Hue, Saturation, Value)</strong> conversion can be used to facilitate segmentation processes.</p>
+<p>Usually, objects in images have distinct colors (hues) and luminosities, so that these features can be used to separate different areas of the image. In the RGB representation the hue and the luminosity are expressed as a linear combination of the R,G,B channels, whereas they correspond to single channels of the HSV image (the Hue and the Value channels).</p>
+<p><strong>A simple segmentation of the image can then be effectively performed by a mere thresholding of the HSV channels.</strong></p>
+<p>See: https://en.wikipedia.org/wiki/HSL_and_HSV</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">image</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">coins</span><span class="p">()</span>  <span class="c1"># or any NumPy array!</span>
-<span class="n">edges</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">sobel</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="n">io</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="k">import</span> <span class="n">data</span>
+<span class="kn">from</span> <span class="nn">skimage.color</span> <span class="k">import</span> <span class="n">rgb2hsv</span>
 </pre></div>
 </div>
-<p>You should see the following output. If you see this, you are all set to go!</p>
-<div class="figure align-default" id="sobel-coins">
-<img alt="_images/sobel_coins.png" src="_images/sobel_coins.png" />
-<p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">Sobel filter on coins’ image</span><a class="headerlink" href="#sobel-coins" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="original-and-hsv-converted-image-using-rgb2hsv-method">
+<h2>20.1. Original and HSV converted image (using <code class="docutils literal notranslate"><span class="pre">rgb2hsv()</span></code> method)<a class="headerlink" href="#original-and-hsv-converted-image-using-rgb2hsv-method" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rgb_img</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">coffee</span><span class="p">()</span>
+<span class="n">hsv_img</span> <span class="o">=</span> <span class="n">rgb2hsv</span><span class="p">(</span><span class="n">rgb_img</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="images-with-hue-saturation-and-value-channels-separately">
+<h2>20.2. Images with hue, saturation, and value channels (separately)<a class="headerlink" href="#images-with-hue-saturation-and-value-channels-separately" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hue_img</span> <span class="o">=</span> <span class="n">hsv_img</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">sat_img</span> <span class="o">=</span> <span class="n">hsv_img</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">value_img</span> <span class="o">=</span> <span class="n">hsv_img</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="show-images">
+<h2>20.3. Show images<a class="headerlink" href="#show-images" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax0</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">rgb_img</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;RGB image&quot;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hue_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hsv&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Hue channel&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sat_img</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Saturation channel&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">value_img</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Value channel&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/RGB_to_HSV_7_0.png" src="_images/RGB_to_HSV_7_0.png" />
+</div>
 </div>
 </div>
 </div>
@@ -344,8 +392,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Intro.html" title="previous page">A short tour of Scikit-image with hands-on code</a>
-    <a class='right-next' id="next-link" href="Active_contour_model.html" title="next page">2. Active contour model</a>
+    <a class='left-prev' id="prev-link" href="RGB2Gray.html" title="previous page">19. RGB to gray</a>
+    <a class='right-next' id="next-link" href="Scipy_zooming.html" title="next page">&lt;no title&gt;</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
