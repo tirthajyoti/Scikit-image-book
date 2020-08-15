@@ -2,7 +2,7 @@
 
 ---
 
-## Dr. Tirthajyoti Sarkar, Fremont, CA, August 2020
+## Examples curated and annotated by Dr. Tirthajyoti Sarkar, based on the [Scikit-image gallery](https://scikit-image.org/docs/stable/auto_examples/), August 2020
 
 - [My LinkedIn](https://www.linkedin.com/in/tirthajyoti-sarkar-2127aa7/) 
 - [My Homepage](https://tirthajyoti.github.io)
@@ -32,7 +32,9 @@ You can think of `scikit-image` as the **first essential library to get familiar
 
 ### Examples from the Scikit-image website
 
-All the examples in this book are directly from the Scikit-image website. I have merely enhanced the code with comments and put them together in a single, navigable manner.
+All the examples in this book are directly from the [Scikit-image website](http://scikit-image.org/). I have merely enhanced the code with comments and put them together in a single, navigable manner. 
+
+The code examples are used here under the terms of the **BSD-license of the scikit-image project**.
 
 ### Built using `Jupyter-book`
 
